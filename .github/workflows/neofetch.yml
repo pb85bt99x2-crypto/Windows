@@ -1,0 +1,20 @@
+name: Check System Info with Neofetch
+
+on: 
+  workflow_dispatch: # Cho phép bạn nhấn nút "Run" thủ công để test
+
+jobs:
+  check-system:
+    runs-on: ubuntu-latest # Chạy trên Ubuntu bản mới nhất
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Neofetch
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y neofetch
+
+      - name: Run Neofetch
+        run: neofetch
